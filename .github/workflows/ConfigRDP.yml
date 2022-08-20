@@ -7,7 +7,7 @@ jobs:
 
     runs-on: ubuntu-latest
     steps:
-      - run: sudo apt-get update && apt-get upgrade -y
+      - run: sudo apt-get update && sudo apt-get upgrade -y
       - name:  Downloading up Ngrok
         run: curl https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-amd64.tgz --output ngrok.tgz && sudo tar -xvzf  ngrok.tgz -C /usr/local/bin
       - name:  Configuring Ngrok 
