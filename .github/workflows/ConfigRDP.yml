@@ -11,9 +11,10 @@ jobs:
       - name:  Downloading up Ngrok
         run: curl https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-amd64.tgz --output ngrok.tgz && sudo tar -xvzf  ngrok.tgz -C /usr/local/bin
       - name:  Configuring Ngrok 
-        run: ngrok config add-authtoken 2DcCe98lUGOE8dnq3GCwWjl7VGZ_SThgi51u44ueYKeiqVfW
+        run: .\ngrok config add-authtoken 2DcCe98lUGOE8dnq3GCwWjl7VGZ_SThgi51u44ueYKeiqVfW
       - name:  Creating Ngrok tunnel
-        run: ngrok http 80
+        run: .\ngrok http 80
+       
       
 
        
