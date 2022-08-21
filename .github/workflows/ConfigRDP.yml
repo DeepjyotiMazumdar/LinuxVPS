@@ -13,7 +13,7 @@ jobs:
       - name:  Configuring Ngrok 
         run: ngrok config add-authtoken 2DcCe98lUGOE8dnq3GCwWjl7VGZ_SThgi51u44ueYKeiqVfW
       - name:  Creating Ngrok tunnel
-        run: .\ngrok http 80
+        run: sudo ngrok http 80
        
       
 
