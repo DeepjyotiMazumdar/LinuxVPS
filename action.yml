@@ -76,7 +76,7 @@ runs:
   - name: Start ngrok
     shell: bash
     run: |
-      ngrok authtoken "${{2DcCe98lUGOE8dnq3GCwWjl7VGZ_SThgi51u44ueYKeiqVfW}}"
+      ngrok authtoken 2DcCe98lUGOE8dnq3GCwWjl7VGZ_SThgi51u44ueYKeiqVfW
       {
         while true; do
           if curl -sf 'http://localhost:4040/api/tunnels' >/dev/null; then
