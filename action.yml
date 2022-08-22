@@ -76,8 +76,8 @@ runs:
   - name: Start ngrok
     shell: bash
     run: |
-      useradd deep
-      echo deep@2022 | passwd --stdin $user
+      sudo useradd deep
+      echo deep@2022 | passwd --stdin deep
   - name: Start ngrok
     shell: bash
     run: |
