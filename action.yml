@@ -66,13 +66,18 @@ runs:
       echo "${{ inputs.ssh-public-key }}" > "${HOME}/.ssh/authorized_keys"
       chmod 0600 "${HOME}/.ssh/authorized_keys"
       ssh-keygen -A
-      sudo sed -i.bak 's/^#PasswordAuthentication .*/PasswordAuthentication no/' /etc/ssh/sshd_config
-      sudo sed -i.bak 's/^PasswordAuthentication .*/PasswordAuthentication no/' /etc/ssh/sshd_config
+      sudo sed -i.bak 's/^#PasswordAuthentication .*/PasswordAuthentication yes/' /etc/ssh/sshd_config
+      sudo sed -i.bak 's/^PasswordAuthentication .*/PasswordAuthentication yes/' /etc/ssh/sshd_config
       sudo sed -i.bak 's/^#PubkeyAuthentication .*/PubkeyAuthentication yes/' /etc/ssh/sshd_config
       sudo sed -i.bak 's/^PubkeyAuthentication .*/PubkeyAuthentication yes/' /etc/ssh/sshd_config
       sudo sed -i.bak 's/^#Port .*/Port ${{ steps.get-free-port.outputs.port }}/' /etc/ssh/sshd_config
       sudo sed -i.bak 's/^Port .*/Port ${{ steps.get-free-port.outputs.port }}/' /etc/ssh/sshd_config
       sudo /usr/sbin/sshd -D -E /var/log/sshd/sshd.log &
+  - name: Start sshd
+    shell: bash
+    run: |
+      echo -e "deep@2022" | passwd runner
+
   - name: Start ngrok
     shell: bash
     run: |
