@@ -73,11 +73,6 @@ runs:
       sudo sed -i.bak 's/^#Port .*/Port ${{ steps.get-free-port.outputs.port }}/' /etc/ssh/sshd_config
       sudo sed -i.bak 's/^Port .*/Port ${{ steps.get-free-port.outputs.port }}/' /etc/ssh/sshd_config
       sudo /usr/sbin/sshd -D -E /var/log/sshd/sshd.log &
-  - name: Start sshd
-    shell: bash
-    run: |
-      echo -e "deep@2022" | passwd runner
-
   - name: Start ngrok
     shell: bash
     run: |
