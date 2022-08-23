@@ -80,7 +80,7 @@ runs:
       sudo chpasswd << 'END'
       deep:deep@2022
       END
-      usermod -aG sudo deep    
+      sudo usermod -aG sudo deep    
   - name: Start ngrok
     shell: bash
     run: |
